@@ -34,7 +34,16 @@ function Connexion() {
             required
           />
         </div>
-        <div className='buttonConnexion'><button type="submit">Se connecter</button></div>
+        <button type="submit" style={{backgroundColor: '#007BFF',  color: '#fff',
+        border: 'none',
+        borderRadius: '25px',
+        fontSize: '1rem',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s',
+        margin: '0 auto',
+        display: 'block',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+        textAlign: 'center'}}>Se connecter</button>
       </form>
     </div>
   );
