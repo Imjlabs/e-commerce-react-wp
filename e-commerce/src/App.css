@@ -1,0 +1,130 @@
+.App {
+  text-align: left;
+  background-color: white;
+  color : #0c2826;
+}
+
+.App-link {
+  color: #fed028;
+}
+
+
+/*Header*/
+
+.header {
+  display: flex;
+  background-color:  #0c2826; /* Couleur de fond */
+  color: #fed028; /* Couleur du texte */
+  padding: 20px; /* Espacement intérieur */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header-logo img {
+  width: 100px;
+}
+
+.header-search {
+  flex-grow: 2;
+  display: flex;
+}
+
+.header-search input {
+  flex-grow: 2;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.header-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.header-cart,
+.header-profile {
+  cursor: pointer;
+}
+
+button {
+  width: 150px; 
+  padding: 12px 20px; 
+  background-color: grey; 
+  color: #fff; 
+  border: none; 
+  border-radius: 25px; 
+  font-size: 1rem; 
+  cursor: pointer; 
+  margin: 0 auto; 
+  display: block; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
+}
+
+/* Body */
+
+.produit {
+  flex-grow: 2;
+  display: flex;
+  margin-top: 100px;
+}
+
+.nomProduit{
+  position: float;
+  margin: 50px;
+}
+
+/* Connexion */
+
+.connexion-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+  background-color: #f4f4f4;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+form {
+  width: 300px;
+  background-color: #fff;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.buttonConnexion {
+  width: 100%;
+  padding: 0.75rem;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
