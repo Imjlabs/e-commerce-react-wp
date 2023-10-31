@@ -23,34 +23,39 @@
 
 .header-logo img {
   width: 100px;
+  padding: 1rem;
 }
 
 .header-search {
   flex-grow: 2;
   display: flex;
+  padding: 1rem;
 }
 
 .header-search input {
   flex-grow: 2;
   padding: 0.5rem;
   margin-right: 0.5rem;
+  padding: 1rem;
 }
 
 .header-links {
   display: flex;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .header-cart,
 .header-profile {
   cursor: pointer;
+  padding: 1rem;
 }
 
 button {
   width: 150px; 
   padding: 12px 20px; 
-  background-color: grey; 
-  color: #fff; 
+  background-color: white; 
+  color: #0c2826; 
   border: none; 
   border-radius: 25px; 
   font-size: 1rem; 

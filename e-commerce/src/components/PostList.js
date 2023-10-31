@@ -41,7 +41,7 @@ const PostList = (props) => {
                             </div>
                             <div className='nomProduit'>
                                 {product.images && product.images.length > 0 ? (
-                                    <img src={product.images[0].src} alt={product.name} width='20%' height='20%'  />
+                                    <img src={product.images[0].src} alt={product.name} width='20%' height='auto'  />
                                 ) : (
                                     <p>Aucune image disponible</p>
                                 )}
