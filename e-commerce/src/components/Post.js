@@ -44,6 +44,7 @@ const Product = () => {
       ) : (
         <p>Aucune image disponible</p>
       )}
+      <p className='description'>Description : {ReactHtmlParser(product.description)}</p>
       <button>Ajouter au panier</button>
     </div>
   );
