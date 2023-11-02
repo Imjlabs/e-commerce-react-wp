@@ -35,14 +35,14 @@ const PostList = (props) => {
                     <div key={product.id}>
                         <div className='produit'>
                             <div className='nomProduit'>
-                                <h2><Link to={`/product/${product.id}`}>{ReactHtmlParser(product.name)}</Link></h2>
+                                <h2>{ReactHtmlParser(product.name)}</h2>
                             </div>
                             <div className='nomProduit'>
                                 <p>Prix : {ReactHtmlParser(product.price_html)}</p>
                             </div>
                             <div className='nomProduit'>
                                 {product.images && product.images.length > 0 ? (
-                                    <img src={product.images[0].src} alt={product.name} width='20%' height='auto'  />
+                                    <Link to={`/product/${product.id}`}><img src={product.images[0].src} alt={product.name} width='20%' height='auto'  /></Link>
                                 ) : (
                                     <p>Aucune image disponible</p>
                                 )}
