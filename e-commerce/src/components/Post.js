@@ -44,6 +44,7 @@ const Product = () => {
       ) : (
         <p>Aucune image disponible</p>
       )}
+      <button>Ajouter au panier</button>
     </div>
   );
 };
