@@ -48,6 +48,7 @@ const Post = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="product-page">
       <div className="product-content">
         <img className="product-imageP" src={product.images[0].src} alt={product.name} />
@@ -70,6 +71,18 @@ const Post = () => {
         
 
       </div>
+=======
+    <div>
+      <h1>{ReactHtmlParser(product.name)}</h1>
+      <p>Prix : {ReactHtmlParser(product.price_html)}</p>
+      {product.images && product.images.length > 0 ? (
+        <img src={product.images[0].src} alt={product.name} width='20%' height='20%' />
+      ) : (
+        <p>Aucune image disponible</p>
+      )}
+      <p className='description'>Description : {ReactHtmlParser(product.description)}</p>
+      <button>Ajouter au panier</button>
+>>>>>>> 9382d5fad1af52ea353277b0c84ca07edb5f645b
     </div>
 );
 
