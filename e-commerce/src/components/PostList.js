@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ReactHtmlParser from "html-react-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import Cart from "./Cart"; // Assurez-vous d'importer le composant Cart depuis le bon chemin
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 var session_url =
   "https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products";
@@ -13,7 +12,7 @@ var password = "cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc";
 
 const PostList = (props) => {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
     axios
@@ -33,11 +32,17 @@ const PostList = (props) => {
   }, []);
 
   const addToCart = (product) => {
-    const newItem = {
-      name: product.name,
-      price: product.price_html,
-    };
-    setCartItems([...cartItems, newItem]);
+    if (selectedProducts.includes(product)) {
+      // Si le produit est déjà sélectionné, le désélectionner
+      setSelectedProducts(selectedProducts.filter((p) => p !== product));
+    } else {
+      // Sinon, l'ajouter à la liste des produits sélectionnés
+      setSelectedProducts([...selectedProducts, product]);
+    }
+  };
+
+  const isProductSelected = (product) => {
+    return selectedProducts.includes(product);
   };
 
   return (
@@ -65,14 +70,19 @@ const PostList = (props) => {
                 <p className="product-price">
                   Prix : {ReactHtmlParser(product.price_html)}
                 </p>
-                <button onClick={() => addToCart(product)}>
-                  <FontAwesomeIcon icon={faShoppingCart} /> Ajouter au panier
+                <button
+                  onClick={() => addToCart(product)}
+                  className={`add-to-cart ${
+                    isProductSelected(product) ? "selected" : ""
+                  }`}>
+                  {isProductSelected(product)
+                    ? "Produit ajouté au panier"
+                    : "Ajouter au panier"}
                 </button>
               </div>
             )
         )}
       </div>
-      <Cart cartItems={cartItems} />
     </div>
   );
 };
