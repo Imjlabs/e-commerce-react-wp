@@ -2,10 +2,11 @@ import './App.css';
 import React from 'react';
 
 import PostList from './components/PostList' ;
-import Connexion from './components/Connexion'; // Assurez-vous d'avoir créé ce composant
+import Connexion from './components/Connexion'; 
 import Panier from './components/Panier';
 import Post from './components/Post';
-import Header from './components/Header'; // Assurez-vous que le chemin est correct
+import WelcomePage from "./components/WelcomePage";
+import Header from './components/Header'; 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <Header />
           <main>
           <Routes>
-              <Route path="/" element={<PostList />} />
+              <Route path="/" element={<WelcomePage />} />
+              <Route path="/Catalogue" element={<PostList />} />
               <Route path="/Connexion" element={<Connexion />} />
               <Route path="/Panier" element={<Panier />} />
           </Routes>
@@ -28,4 +30,9 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
 
