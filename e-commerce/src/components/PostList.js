@@ -29,30 +29,23 @@ const PostList = (props) => {
 
     return (
         <div>
-            <h1>Nos produits</h1>
-            <ul>
+            <div className="title">Notre catalogue </div>
+            <div className="products-container">
                 {products.map((product, index) => ( index !== 0 && (
-                    <div key={product.id}>
-                        <div className='produit'>
-                            <div className='nomProduit'>
-                                <h2>{ReactHtmlParser(product.name)}</h2>
-                            </div>
-                            <div className='nomProduit'>
-                                <p>Prix : {ReactHtmlParser(product.price_html)}</p>
-                            </div>
-                            <div className='nomProduit'>
-                                {product.images && product.images.length > 0 ? (
-                                    <Link to={`/product/${product.id}`}><img src={product.images[0].src} alt={product.name} width='20%' height='auto'  /></Link>
-                                ) : (
-                                    <p>Aucune image disponible</p>
-                                )}
-                            </div> 
-                        </div>
+                    <div key={product.id} className='product-card'>
+                        {product.images && product.images.length > 0 ? (
+                            <Link to={`/product/${product.id}`}><img src={product.images[0].src} alt={product.name} className="product-image" /></Link>
+                        ) : (
+                            <p>Aucune image disponible</p>
+                        )}
+                        <h2 className="product-title">{ReactHtmlParser(product.name)}</h2>
+                        <p className="product-price">Prix : {ReactHtmlParser(product.price_html)}</p>
                     </div>
                 )))}
-            </ul>
+            </div>
         </div>
     );
+
 };
 
 
