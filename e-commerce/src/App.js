@@ -21,6 +21,7 @@ function App() {
               <Route path="/Catalogue" element={<PostList />} />
               <Route path="/Connexion" element={<Connexion />} />
               <Route path="/Panier" element={<Panier />} />
+              <Route path="/product/:productId" element={<Post />} />
           </Routes>
         </main>
         </Router>

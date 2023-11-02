@@ -35,7 +35,7 @@ const PostList = (props) => {
                     <div key={product.id}>
                         <div className='produit'>
                             <div className='nomProduit'>
-                                <h2><Link to="/product/${product.id}">{ReactHtmlParser(product.name)}</Link></h2>
+                                <h2><Link to={`/product/${product.id}`}>{ReactHtmlParser(product.name)}</Link></h2>
                             </div>
                             <div className='nomProduit'>
                                 <p>Prix : {ReactHtmlParser(product.price_html)}</p>
