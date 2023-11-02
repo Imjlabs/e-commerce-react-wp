@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 function Connexion() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
+    console.log('Username:', username);
     console.log('Password:', password);
   };
 
@@ -15,12 +15,12 @@ function Connexion() {
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="email">Adresse e-mail :</label>
+          <label htmlFor="username">Identifiant :</label>
           <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="username"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
