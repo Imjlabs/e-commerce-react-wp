@@ -249,3 +249,26 @@ input {
   margin-top: 5px;
   color: #060b04; 
 }
+.cart {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+
+/* Style pour les produits sélectionnés */
+.selected-product {
+  background-color: green;
+  color: white;
+}
+.add-to-cart.selected {
+  background-color: green;
+  color: white;
+}
+.remove-icon {
+  color: red;
+  margin-left: 5px;
+}
+
+.add-to-cart.selected .remove-icon {
+  display: inline; /* Afficher l'icône uniquement si le produit est sélectionné */
+}
