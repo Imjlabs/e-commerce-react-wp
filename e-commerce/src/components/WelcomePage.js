@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import img1 from './../img1.png';
 import img2 from './../img2.png';
 import img3 from './../img3.png';
@@ -18,10 +19,12 @@ function WelcomePage() {
   return (
     <div className="WelcomePage">
       <h1 className="welcome-text">
-      Bienvenue à notre boutique en ligne !<br />Goragavira </h1>
+      Bienvenue sur notre boutique en ligne !<br />Goragavira </h1>
+      <p>Découvrez notre catalogue</p>
       <div className="image-slider">
-        <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
+        <Link to="/Catalogue"><img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} /> </Link>
       </div>
+     
     </div>
   );
 }
