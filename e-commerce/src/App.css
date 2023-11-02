@@ -249,3 +249,11 @@ input {
   margin-top: 5px;
   color: #060b04; 
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #fff2c3;
+}
