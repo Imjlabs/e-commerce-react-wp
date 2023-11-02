@@ -13,9 +13,8 @@
 
 .header {
   display: flex;
-  background-color:  #0c2826; /* Couleur de fond */
-  color: #fed028; /* Couleur du texte */
-  padding: 20px; /* Espacement intérieur */
+  background-color: #0c2826; 
+  color: #fed028; 
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -30,41 +29,44 @@
   flex-grow: 2;
   display: flex;
   padding: 1rem;
+  align-items: center; 
 }
 
 .header-search input {
   flex-grow: 2;
   padding: 0.5rem;
   margin-right: 0.5rem;
-  padding: 1rem;
 }
 
 .header-links {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  display: flex; 
+  align-items: center; 
 }
 
 .header-cart,
-.header-profile {
+.header-profile,
+.header-catalogue {
   cursor: pointer;
   padding: 1rem;
+  display: flex;
+  align-items: center; 
+  margin-left: 1rem; 
 }
 
 button {
-  width: 150px; 
+  width: 150px;
   padding: 12px 20px;
-  background-color: rgb(255, 255, 255); 
-  color: #0c2826; 
-  border: none; 
-  border-radius: 12px; 
-  font-size: 1rem; 
-  cursor: pointer; 
-  margin: 0 auto; 
-  display: block; 
-  box-shadow: 0px 4px 6px 6px rgba(0, 0, 0, 0.1); 
-  text-align: center; 
+  background-color: rgb(255, 255, 255);
+  color: #0c2826;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-left: 0.5rem; 
 }
+
 
 /* Body */
 
@@ -278,5 +280,57 @@ a:hover {
 }
 
 .add-to-cart.selected .remove-icon {
-  display: inline; /* Afficher l'icône uniquement si le produit est sélectionné */
+  display: inline; 
 }
+.add-to-cart {
+  white-space: nowrap;
+  width: 200px;
+}
+/*Pour chaque prod*/
+.product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px; /* I've changed this line to remove the 50% */
+}
+
+.product-content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-left: 0; /* No change here, it's still resetting padding */
+}
+
+.product-imageP {
+  max-width: 50%;
+  margin-right: 20px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+.panier {
+  background-color: #fff;
+  padding: 10px 20px; 
+  border: 1px solid #ccc;
+  border-radius: 25px; 
+  font-size: 14px; 
+  text-align: center;
+  display: inline-block;
+}
+.panier.selected {
+  background-color: green;
+  color: white; 
+}
+
+
