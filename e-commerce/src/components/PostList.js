@@ -31,7 +31,7 @@ const PostList = (props) => {
         <div>
             <h1>Nos produits</h1>
             <ul>
-                {products.map(product => (
+                {products.map((product, index) => ( index !== 0 && (
                     <div key={product.id}>
                         <div className='produit'>
                             <div className='nomProduit'>
@@ -49,7 +49,7 @@ const PostList = (props) => {
                             </div> 
                         </div>
                     </div>
-                ))}
+                )))}
             </ul>
         </div>
     );
