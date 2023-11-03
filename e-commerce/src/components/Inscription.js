@@ -9,7 +9,6 @@ function Inscription() {
     e.preventDefault();
     console.log('Username:', username);
     console.log('Password:', password);
-    console.log('name:', name);
   };
 
   return (
@@ -17,7 +16,7 @@ function Inscription() {
       <h2>Inscription</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Nom et prénom :</label>
+          <label htmlFor="username">Nom et prénom :</label>
           <input
             type="name"
             id="name"
