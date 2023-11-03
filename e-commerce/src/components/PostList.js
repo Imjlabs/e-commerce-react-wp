@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const session_url =
-  'https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products';
+  'https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products?per_page=20';
 const username = 'ck_e30e489bfe9990edb792ce1ad7436620dff7cb29';
 const password = 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc';
 
