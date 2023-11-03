@@ -7,8 +7,8 @@ const Profil = () => {
     const handleLogout = () => {
 
         localStorage.removeItem('jwtToken');
-
-        navigate('/');
+        navigate('/')
+        window.location.reload();
     };
 
     return (
@@ -16,6 +16,7 @@ const Profil = () => {
             <h2>Page de Profil</h2>
             <p>Bienvenue sur votre page de profil.</p>
             <button onClick={handleLogout}>Se déconnecter</button>
+
         </div>
     );
 };

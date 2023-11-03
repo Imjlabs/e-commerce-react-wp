@@ -18,8 +18,8 @@ const Connexion = () => {
       const { token } = response.data;
 
       localStorage.setItem('jwtToken', token);
-
-      navigate('/');
+      navigate('/')
+      window.location.reload();
     } catch (error) {
       console.error('Login failed', error);
     }
