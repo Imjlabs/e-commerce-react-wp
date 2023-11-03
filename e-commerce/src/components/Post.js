@@ -60,13 +60,19 @@ const Post = () => {
         <div className="product-info">
           <h1 className="product-title">{ReactHtmlParser(product.name)}</h1>
           <p className="product-price">Prix : {ReactHtmlParser(product.price_html)}</p> 
-          <button 
-            onClick={() => {
-              addToCart(product);
-            }} 
-            className={`panier ${isProductSelected(product) ? "selected" : ""}`}>
-            {isProductSelected(product) ? "Produit ajouté au panier" : "Ajouter au panier"}
-          </button>
+          <button
+                  onClick={() => addToCart(product)}
+                  className={`add-to-cart ${
+                    isProductSelected(product) ? 'selected' : ''
+                  }`}
+                  disabled={product.name.includes('(Rupture de Stock)')}
+                >
+                  {product.name.includes('(Rupture de Stock)')
+                    ? "Produit non disponible"
+                    : isProductSelected(product)
+                    ? 'Produit ajouté au panier'
+                    : 'Ajouter au panier'}
+                </button>
         </div>
       </div>
       <div className="product-details">

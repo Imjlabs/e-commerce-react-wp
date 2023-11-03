@@ -39,7 +39,6 @@ const PostList = (props) => {
     }
   }, []);
 
-  // Use this useEffect to save selected products to localStorage whenever the selectedProducts state changes
   useEffect(() => {
     localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
   }, [selectedProducts]);
@@ -86,8 +85,11 @@ const PostList = (props) => {
                   className={`add-to-cart ${
                     isProductSelected(product) ? 'selected' : ''
                   }`}
+                  disabled={product.name.includes('(Rupture de Stock)')}
                 >
-                  {isProductSelected(product)
+                  {product.name.includes('(Rupture de Stock)')
+                    ? "Produit non disponible"
+                    : isProductSelected(product)
                     ? 'Produit ajouté au panier'
                     : 'Ajouter au panier'}
                 </button>
