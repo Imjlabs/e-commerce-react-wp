@@ -8,6 +8,13 @@ const CartPage = () => {
     return cart.reduce((total, product) => total + parseFloat(product.price), 0);
   };
 
+  const redirectToPaymentPage = (cart) => {
+    // Redirection vers la page de paiement avec les détails du panier dans l'URL
+    const queryString = cart.map(product => `productId=${product.id}`).join('&');
+    window.location.href = `/page-de-paiement?${queryString}`;
+  };
+  
+
   return (
     <div className="cart-page">
       <h2>Votre Panier</h2>
@@ -31,6 +38,8 @@ const CartPage = () => {
           </div>
 
           <button onClick={clearCart}>Vider le Panier</button>
+          <button onClick={() => redirectToPaymentPage(cart)}>Procéder au paiement</button>
+
         </>
       )}
     </div>
