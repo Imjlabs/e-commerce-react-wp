@@ -332,3 +332,15 @@ a:hover {
   background-color: green;
   color: white; 
 }
+
+.container {
+  display: flex;
+}
+
+.catalog-container {
+  flex: 1; 
+}
+
+.cart-container {
+  width: 300px; 
+}
