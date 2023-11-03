@@ -1,12 +1,13 @@
 import './App.css';
 import React from 'react';
-
-import PostList from './components/PostList' ;
-import Connexion from './components/Connexion'; 
-import Panier from './components/Panier';
+import Inscription from './components/Inscription';
+import PostList from './components/PostList';
+import Connexion from './components/Connexion';
+import Profil from './components/Profil';
+import CartPage from './components/Panier';
 import Post from './components/Post';
 import WelcomePage from "./components/WelcomePage";
-import Header from './components/Header'; 
+import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
