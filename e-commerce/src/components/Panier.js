@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useCart } from './CartContext';
 
-function Connexion() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const CartPage = () => {
+  const { cart, removeFromCart, clearCart } = useCart();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+  const calculateTotal = () => {
+    return cart.reduce((total, product) => total + parseFloat(product.price), 0);
   };
 
   return (
-    <div className="connexion-form-container">
-      <h2>Panier</h2>
-        </div>
-        
-  );
-}
+    <div className="cart-page">
+      <h2>Votre Panier</h2>
 
-export default Connexion;
+      {cart.length === 0 ? (
+        <p>Le panier est vide.</p>
+      ) : (
+        <>
+          <ul>
+            {cart.map((product) => (
+              <li key={product.id}>
+                <span>{product.name}</span>
+                <span>{parseFloat(product.price).toFixed(2)} €</span>
+                <button onClick={() => removeFromCart(product.id)}>Retirer</button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="cart-total">
+            <strong>Total :</strong> {calculateTotal().toFixed(2)} €
+          </div>
+
+          <button onClick={clearCart}>Vider le Panier</button>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default CartPage;

@@ -1,29 +1,40 @@
-import React from "react";
+import React from 'react';
+import { useCart } from './CartContext';
 
-const Cart = ({ cartItems }) => {
+const CartPage = () => {
+  const { cart, removeFromCart, clearCart } = useCart();
+
+  const calculateTotal = () => {
+    return cart.reduce((total, product) => total + parseFloat(product.price), 0);
+  };
+
   return (
-    <div className="cart">
-      <h3>Votre panier</h3>
-      <ul>
-        {cartItems.map((item, index) => (
-          <li key={index}>
-            <span>{item.name}</span>
-            <span>{item.price}</span>
-          </li>
-        ))}
-      </ul>
-      <p>Total : {calculateTotal(cartItems)}</p>
+    <div className="cart-page">
+      <h2>Votre Panier</h2>
+
+      {cart.length === 0 ? (
+        <p>Le panier est vide.</p>
+      ) : (
+        <>
+          <ul>
+            {cart.map((product) => (
+              <li key={product.id}>
+                <span>{product.name}</span>
+                <span>{parseFloat(product.price).toFixed(2)} €</span>
+                <button onClick={() => removeFromCart(product.id)}>Retirer</button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="cart-total">
+            <strong>Total :</strong> {calculateTotal().toFixed(2)} €
+          </div>
+
+          <button onClick={clearCart}>Vider le Panier</button>
+        </>
+      )}
     </div>
   );
 };
 
-const calculateTotal = (cartItems) => {
-  // Calculez le total des prix des articles dans le panier
-  const total = cartItems.reduce(
-    (acc, item) => acc + parseFloat(item.price),
-    0
-  );
-  return total.toFixed(2); // Formatage du total avec 2 décimales
-};
-
-export default Cart;
+export default CartPage;

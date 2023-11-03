@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useCart } from './CartContext'; // Assure-toi d'importer le hook useCart
 
 const session_url =
   'https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products?per_page=20';
 const username = 'ck_e30e489bfe9990edb792ce1ad7436620dff7cb29';
 const password = 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc';
 
-const PostList = (props) => {
+const PostList = () => {
   const [products, setProducts] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  const { addToCart, cart } = useCart(); // Utilise le hook useCart
 
   useEffect(() => {
     axios
@@ -29,31 +28,7 @@ const PostList = (props) => {
       .catch((error) => {
         console.error('Erreur lors de la récupération des données :', error);
       });
-
-    // Retrieve selected products from localStorage when the component mounts
-    const storedSelectedProducts = JSON.parse(
-      localStorage.getItem('selectedProducts')
-    );
-    if (storedSelectedProducts) {
-      setSelectedProducts(storedSelectedProducts);
-    }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
-  }, [selectedProducts]);
-
-  const addToCart = (product) => {
-    if (selectedProducts.includes(product)) {
-      setSelectedProducts(selectedProducts.filter((p) => p !== product));
-    } else {
-      setSelectedProducts([...selectedProducts, product]);
-    }
-  };
-
-  const isProductSelected = (product) => {
-    return selectedProducts.includes(product);
-  };
 
   return (
     <div>
@@ -81,16 +56,18 @@ const PostList = (props) => {
                   Prix : {ReactHtmlParser(product.price_html)}
                 </p>
                 <button
-                  onClick={() => addToCart(product)}
+                  onClick={() => {
+                    addToCart(product); // Utilise addToCart pour ajouter au panier
+                  }}
                   className={`add-to-cart ${
-                    isProductSelected(product) ? 'selected' : ''
+                    cart.some((item) => item.id === product.id) ? 'selected' : ''
                   }`}
                   disabled={product.name.includes('(Rupture de Stock)')}
                 >
                   {product.name.includes('(Rupture de Stock)')
                     ? "Produit non disponible"
-                    : isProductSelected(product)
-                    ? 'Produit ajouté au panier'
+                    : cart.some((item) => item.id === product.id)
+                    ? 'Retirer du panier'
                     : 'Ajouter au panier'}
                 </button>
               </div>
