@@ -38,7 +38,7 @@ const PaymentPage = () => {
 
         <label>Date d'expiration:</label>
         <input
-          type="number"
+          type="date"
           placeholder="date d'expiration"
         />
 
