@@ -31,13 +31,22 @@ const PaymentPage = () => {
 
       <div className="payment-details">
         <label>Numéro de carte:</label>
-        <p>{paymentDetails.cardNumber}</p>
+        <input
+          type="number"
+          placeholder="creditcard"
+        />
 
         <label>Date d'expiration:</label>
-        <p>{paymentDetails.expirationDate}</p>
+        <input
+          type="number"
+          placeholder="date d'expiration"
+        />
 
         <label>CVV:</label>
-        <p>{paymentDetails.cvv}</p>
+        <input
+          type="number"
+          placeholder="CVV"
+        />
       </div>
 
       <button onClick={handlePayment}>Confirmer le Paiement</button>
