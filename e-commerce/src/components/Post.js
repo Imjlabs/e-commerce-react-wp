@@ -70,7 +70,7 @@ const Post = () => {
                   {product.name.includes('(Rupture de Stock)')
                     ? "Produit non disponible"
                     : isProductSelected(product)
-                    ? 'Produit ajoutÃ© au panier'
+                    ? 'Produit ajouté au panier'
                     : 'Ajouter au panier'}
                 </button>
         </div>
