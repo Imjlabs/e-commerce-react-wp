@@ -1,43 +1,49 @@
 import React, { useState } from 'react';
 
-function Connexion() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const CartPage = () => {
+  // Utilise le state pour stocker les articles dans le panier
+  const [cartItems, setCartItems] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+  // Fonction pour ajouter un article au panier
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  // Fonction pour supprimer un article du panier
+  const removeFromCart = (item) => {
+    const updatedCart = cartItems.filter((cartItem) => cartItem.id !== item.id);
+    setCartItems(updatedCart);
+  };
+
+  // Calcule le total du panier
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0);
   };
 
   return (
-    <div className="connexion-form-container">
-      <h2>Connexion</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Adresse e-mail :</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div>
+      <h2>Panier</h2>
+      {cartItems.length === 0 ? (
+        <p>Votre panier est vide</p>
+      ) : (
+        <ul>
+          {cartItems.map((item) => (
+            <li key={item.id}>
+              {item.name} - ${item.price}
+              <button onClick={() => removeFromCart(item)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {cartItems.length > 0 && (
+        <div>
+          <h3>Total: ${calculateTotal()}</h3>
+          <button>Commander</button>
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Mot de passe :</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Se connecter</button>
-      </form>
+      )}
     </div>
   );
-}
+};
 
-export default Connexion;
+export default CartPage;
