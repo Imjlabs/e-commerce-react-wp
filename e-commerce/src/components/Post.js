@@ -64,7 +64,7 @@ const Post = () => {
         </div>
       </div>
       <div className="product-details">
-        <p className='product-description'>Description : {ReactHtmlParser(product.description)}</p>
+        <p className='product-description'> <b> - Description</b> : {ReactHtmlParser(product.description)}</p>
        
       </div>
     </div>
