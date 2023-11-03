@@ -15,10 +15,8 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    // Vérifier la présence du token dans le local storage
-    const token = localStorage.getItem('jwtToken'); // Assurez-vous de remplacer 'votreToken' par la clé réelle de votre token
+    const token = localStorage.getItem('jwtToken'); 
 
-    // Mettre à jour l'état en conséquence
     setIsUserLoggedIn(!!token);
   }, []);
 

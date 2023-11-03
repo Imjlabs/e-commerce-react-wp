@@ -13,7 +13,8 @@ var password = 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc';
 const Post = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const { addToCart, cart } = useCart(); // Utilise le hook
+  const { addToCart, cart } = useCart(); 
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,8 +65,8 @@ const Post = () => {
             {product.name.includes('(Rupture de Stock)')
               ? 'Produit non disponible'
               : isProductSelected()
-              ? 'Produit ajouté au panier'
-              : 'Ajouter au panier'}
+                ? 'Produit ajouté au panier'
+                : 'Ajouter au panier'}
           </button>
         </div>
       </div>

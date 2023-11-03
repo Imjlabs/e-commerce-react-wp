@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser';
-import { useCart } from './CartContext'; // Assure-toi d'importer le hook useCart
+import { useCart } from './CartContext'; 
 
 const session_url =
   'https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products?per_page=20';
@@ -11,7 +11,7 @@ const password = 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc';
 
 const PostList = () => {
   const [products, setProducts] = useState([]);
-  const { addToCart, cart } = useCart(); // Utilise le hook useCart
+  const { addToCart, cart } = useCart(); 
 
   useEffect(() => {
     axios
@@ -57,18 +57,17 @@ const PostList = () => {
                 </p>
                 <button
                   onClick={() => {
-                    addToCart(product); // Utilise addToCart pour ajouter au panier
+                    addToCart(product); 
                   }}
-                  className={`add-to-cart ${
-                    cart.some((item) => item.id === product.id) ? 'selected' : ''
-                  }`}
+                  className={`add-to-cart ${cart.some((item) => item.id === product.id) ? 'selected' : ''
+                    }`}
                   disabled={product.name.includes('(Rupture de Stock)')}
                 >
                   {product.name.includes('(Rupture de Stock)')
                     ? "Produit non disponible"
                     : cart.some((item) => item.id === product.id)
-                    ? 'Retirer du panier'
-                    : 'Ajouter au panier'}
+                      ? 'Retirer du panier'
+                      : 'Ajouter au panier'}
                 </button>
               </div>
             )

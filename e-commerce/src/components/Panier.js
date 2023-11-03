@@ -12,7 +12,7 @@ const CartPage = () => {
     const queryString = cart.map(product => `productId=${product.id}`).join('&');
     window.location.href = `/page-de-paiement?${queryString}`;
   };
-  
+
 
   return (
     <div className="cart-page">

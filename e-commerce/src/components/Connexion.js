@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Utilise useNavigate au lieu de useHistory
+import { useNavigate } from 'react-router-dom'; 
 
 const Connexion = () => {
   const [username, setUsername] = useState('');
@@ -43,17 +43,19 @@ const Connexion = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin} type="submit" style={{backgroundColor: '#007BFF',  color: '#fff',
-        border: 'none',
-        borderRadius: '25px',
-        fontSize: '1rem',
-        cursor: 'pointer',
-        transition: 'background-color 0.3s',
-        margin: '0 auto',
-        marginTop: '15px',
-        display: 'block',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-        textAlign: 'center'}}>Se connecter</button>
+        <button onClick={handleLogin} type="submit" style={{
+          backgroundColor: '#007BFF', color: '#fff',
+          border: 'none',
+          borderRadius: '25px',
+          fontSize: '1rem',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s',
+          margin: '0 auto',
+          marginTop: '15px',
+          display: 'block',
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+          textAlign: 'center'
+        }}>Se connecter</button>
       </div>
     </div>
   );

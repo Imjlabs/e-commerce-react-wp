@@ -88,7 +88,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Utilise toute la hauteur de la fenêtre */
+  height: 80vh; 
   background-color: #f4f4f4;
 }
 
