@@ -9,7 +9,6 @@ const CartPage = () => {
   };
 
   const redirectToPaymentPage = (cart) => {
-    // Redirection vers la page de paiement avec les détails du panier dans l'URL
     const queryString = cart.map(product => `productId=${product.id}`).join('&');
     window.location.href = `/page-de-paiement?${queryString}`;
   };

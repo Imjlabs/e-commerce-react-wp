@@ -33,7 +33,7 @@ const Post = () => {
   }, [productId]);
 
   if (!product) {
-    return <p>Loading...</p>;
+    return <b>Loading...</b>;
   }
 
   const productImages = product.images.map(image => ({
@@ -70,7 +70,7 @@ const Post = () => {
         </div>
       </div>
       <div className="product-details">
-        <p className='product-description'><b> - Description</b> : {ReactHtmlParser(product.description)}</p>
+        <p className='product-description'> <b> Description</b> : {ReactHtmlParser(product.description)}</p>
       </div>
     </div>
   );
