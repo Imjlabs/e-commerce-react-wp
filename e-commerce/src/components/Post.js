@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser';
-import ImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/css/image-gallery.css';
-
 
 var session_url = 'https://eisee-it.o3creative.fr/2023/groupe3/wp-json/wc/v3/products';
 var username = 'ck_e30e489bfe9990edb792ce1ad7436620dff7cb29';
@@ -14,6 +11,7 @@ const Post = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,16 +33,12 @@ const Post = () => {
   if (!product) {
     return <p>Loading...</p>;
   }
-
-  const productImages = product.images.map(image => ({
-    original: image.src,
-    thumbnail: image.src
-  }));
-
   const addToCart = (product) => {
     if (selectedProducts.includes(product)) {
+      // Si le produit est déjà sélectionné, le désélectionner
       setSelectedProducts(selectedProducts.filter((p) => p !== product));
     } else {
+      // Sinon, l'ajouter à la liste des produits sélectionnés
       setSelectedProducts([...selectedProducts, product]);
     }
   };
@@ -56,7 +50,7 @@ const Post = () => {
   return (
     <div className="product-page">
       <div className="product-content">
-        <ImageGallery className="image-gallery"  items={productImages} />
+        <img className="product-imageP" src={product.images[0].src} alt={product.name} />
         <div className="product-info">
           <h1 className="product-title">{ReactHtmlParser(product.name)}</h1>
           <p className="product-price">Prix : {ReactHtmlParser(product.price_html)}</p> 
@@ -77,9 +71,10 @@ const Post = () => {
       </div>
       <div className="product-details">
         <p className='product-description'> <b> - Description</b> : {ReactHtmlParser(product.description)}</p>
+       
       </div>
     </div>
-  );
-};
+);
 
+};
 export default Post;
