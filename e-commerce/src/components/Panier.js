@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 
 const CartPage = () => {
+  // Utilise le state pour stocker les articles dans le panier
   const [cartItems, setCartItems] = useState([]);
 
+  // Fonction pour ajouter un article au panier
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
 
+  // Fonction pour supprimer un article du panier
   const removeFromCart = (item) => {
     const updatedCart = cartItems.filter((cartItem) => cartItem.id !== item.id);
     setCartItems(updatedCart);
   };
 
+  // Calcule le total du panier
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
