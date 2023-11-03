@@ -22,7 +22,6 @@ const CartPage = () => {
       {cartItems.length === 0 ? (
         <p>Votre panier est vide</p>
       ) : (
-        
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
@@ -32,7 +31,7 @@ const CartPage = () => {
           ))}
         </ul>
       )}
-
+      
       {cartItems.length > 0 && (
         <div>
           <h3>Total: ${calculateTotal()}</h3>
