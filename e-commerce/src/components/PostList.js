@@ -33,10 +33,8 @@ const PostList = (props) => {
 
   const addToCart = (product) => {
     if (selectedProducts.includes(product)) {
-      // Si le produit est déjà sélectionné, le désélectionner
       setSelectedProducts(selectedProducts.filter((p) => p !== product));
     } else {
-      // Sinon, l'ajouter à la liste des produits sélectionnés
       setSelectedProducts([...selectedProducts, product]);
     }
   };
